@@ -81,7 +81,12 @@ const Modal = forwardRef(
           />
           <div
             ref={ref}
-            className={cx(styles.modal, getStyle(styles, camelCase("size-" + size)), className)}
+            className={cx(
+              styles.modal,
+              getStyle(styles, camelCase("size-" + size)),
+              { [styles.withHeaderAction]: !!renderHeaderAction },
+              className
+            )}
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
             role="dialog"
